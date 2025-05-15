@@ -2,39 +2,70 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi App TikTok</title>
+  <title>TikUploader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.6;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      margin: .5rem 0 0;
+      color: #666;
+    }
+    section h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    ol {
+      padding-left: 1.2rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: .9rem;
+      color: #777;
+    }
+    footer nav a {
+      text-decoration: none;
+      color: #0070f3;
+      margin: 0 .5rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenido a MiUploaderTikTok</h1>
-  <p>Este sitio sirve como punto de entrada oficial de la aplicación.</p>
-</body>
-</html>
-EOF
+  <header>
+    <h1>TikUploader</h1>
+    <p>Sube vídeos a TikTok directamente desde nuestra plataforma.</p>
+  </header>
 
-# 3. (Opcional) Crea privacy.html y terms.html
-cat > privacy.html << 'EOF'
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Política de Privacidad</title>
-</head>
-<body>
-  <h1>Política de Privacidad</h1>
-  <p>Aquí describes cómo recoges y usas datos de los usuarios…</p>
-</body>
-</html>
-EOF
+  <section>
+    <h2>Cómo empezar</h2>
+    <ol>
+      <li>Haz clic en “Conectar con TikTok” para autorizar tu cuenta.</li>
+      <li>Sigue el flujo OAuth y otorga permisos de subida de vídeo.</li>
+      <li>Selecciona el archivo o la URL de tu vídeo y pulsa “Subir”.</li>
+      <li>Una vez procesado, podrás publicar tu vídeo en TikTok.</li>
+    </ol>
+  </section>
 
-cat > terms.html << 'EOF'
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Términos de Servicio</title>
-</head>
-<body>
-  <h1>Términos de Servicio</h1>
-  <p>Aquí defines los términos y condiciones de uso…</p>
+  <footer>
+    <nav>
+      <a href="index.html">Política y Términos</a>
+    </nav>
+    <p>&copy; 2025 TikUploader</p>
+  </footer>
 </body>
 </html>
