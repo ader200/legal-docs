@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iniciar sesión con TikTok</title>
+    <title>Autorizar TikTok</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-    <button id="tiktok-login">Iniciar sesión con TikTok</button>
+    <h1>Inicia sesión con TikTok</h1>
+    <p>Haz clic en el botón para autorizar tu cuenta de TikTok.</p>
+
+    <button id="tiktok-login-button">Autorizar TikTok</button>
 
     <script>
-        const clientId = 'TU_CLIENT_ID';
-        const redirectUri = encodeURIComponent('TU_URL_DE_REDIRECCIONAMIENTO'); // Reemplaza con tu URL
-        const state = 'ESTADO_ALEATORIO'; // Genera un valor aleatorio para seguridad
+        // *** REEMPLAZA ESTOS VALORES CON TUS CREDENCIALES DE LA APP TIKTOK ***
+        const clientId = 'TU_CLIENT_ID'; // Tu Client ID de TikTok Developers
+        // La URL de tu página de GitHub Pages donde TikTok redirigirá después de la autorización.
+        // Debe coincidir exactamente con la "Redirect URI" que registraste en TikTok Developers.
+        const redirectUri = encodeURIComponent('TU_URL_DE_GITHUB_PAGES/callback.html'); // Ejemplo: https://tu-usuario.github.io/tu-repositorio/callback.html
+        const state = 'estado_aleatorio_y_seguro'; // Genera un string aleatorio para protección CSRF
 
-        document.getElementById('tiktok-login').addEventListener('click', () => {
-            const authUrl = `https://www.tiktok.com/auth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=user.info.basic,video.upload&state=${state}`;
+        // Alcances (scopes) que necesitas. user.info.basic es común. video.upload si necesitas subir videos.
+        const scopes = 'user.info.basic,video.upload';
+
+        const tiktokLoginButton = document.getElementById('tiktok-login-button');
+
+        tiktokLoginButton.addEventListener('click', () => {
+            // Construye la URL de autorización
+            const authUrl = `https://www.tiktok.com/auth/authorize?client_key=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=${scopes}&state=${state}`;
+
+            // Redirige al usuario a TikTok para la autorización
             window.location.href = authUrl;
         });
     </script>
