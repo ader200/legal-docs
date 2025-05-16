@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iniciar sesión con TikTok</title>
+</head>
+<body>
+    <button id="tiktok-login">Iniciar sesión con TikTok</button>
+
+    <script>
+        const clientId = 'TU_CLIENT_ID';
+        const redirectUri = encodeURIComponent('TU_URL_DE_REDIRECCIONAMIENTO'); // Reemplaza con tu URL
+        const state = 'ESTADO_ALEATORIO'; // Genera un valor aleatorio para seguridad
+
+        document.getElementById('tiktok-login').addEventListener('click', () => {
+            const authUrl = `https://www.tiktok.com/auth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=user.info.basic,video.upload&state=${state}`;
+            window.location.href = authUrl;
+        });
+    </script>
+</body>
+</html>
